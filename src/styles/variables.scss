@@ -1,4 +1,8 @@
-$primary-color: #646cff;
-$secondary-color: #535bf2;
-$font-size-large: 2rem;
-$spacing: 1rem;
+$text-color: rgba(255, 255, 255, 0.87);
+$blue: #007bff;
+$light-grey: #dfdfdf;
+$dark-grey: #242424;
+$medium-grey: #353535;
+$font-size-medium: clamp(0.8rem, 1vw, 1.2rem);
+$font-size-large: clamp(1.2rem, 1.5vw, 1.5rem);
+$spacing: clamp(0.5rem, 1vw, 2rem);

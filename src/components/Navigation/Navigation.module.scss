@@ -1,0 +1,48 @@
+.nav {
+  width: 25%;
+  min-height: 100vh;
+  padding: $spacing;
+  background: $medium-grey;
+  position: sticky;
+  top: 0;
+  border-radius: $spacing;
+  font-size: $font-size-medium;
+
+  @include responsive(700px) {
+    min-height: fit-content;
+    width: 100%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+
+  .tabsContainer {
+    display: flex;
+    gap: $spacing;
+    flex-direction: column;
+    position: sticky;
+    top: 0;
+
+    @include responsive(700px) {
+      flex-direction: row;
+      position: unset;
+      top: unset;
+    }
+
+    .tab {
+      padding: 1vw 2vw;
+      text-decoration: none;
+      color: $text-color;
+      font-weight: normal;
+      border-bottom: 2px solid transparent;
+      transition: all 0.2s ease-in-out;
+      display: block;
+      text-transform: capitalize;
+
+      &.active {
+        color: $blue;
+        border-bottom-color: $blue;
+        font-weight: bold;
+        background: $text-color;
+      }
+    }
+  }
+}

@@ -1,0 +1,10 @@
+.drinksContainer {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing;
+  width: 75%;
+
+  @include responsive(700px) {
+    width: 100%;
+  }
+}

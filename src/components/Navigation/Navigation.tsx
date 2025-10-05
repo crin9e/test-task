@@ -1,4 +1,5 @@
 import { Link, useLocation } from 'react-router-dom';
+import styles from './Navigation.module.scss';
 
 interface NavTabsProps {
   tabs: string[];
@@ -9,21 +10,15 @@ export const Navigation = ({ tabs }: NavTabsProps) => {
   const currentTab = location.pathname.split('/')[1] || tabs[0];
 
   return (
-    <nav style={{ padding: '1rem', borderBottom: '1px solid #ccc' }}>
-      <div style={{ display: 'flex', gap: '1rem' }}>
+    <nav className={styles.nav}>
+      <div className={styles.tabsContainer}>
         {tabs.map(tab => (
           <Link
             key={tab}
             to={`/${tab}`}
-            style={{
-              padding: '0.5rem 1rem',
-              textDecoration: 'none',
-              color: currentTab === tab ? '#007bff' : '#333',
-              borderBottom: currentTab === tab ? '2px solid #007bff' : 'none',
-              fontWeight: currentTab === tab ? 'bold' : 'normal',
-            }}
+            className={`${styles.tab} ${currentTab === tab ? styles.active : ''}`}
           >
-            {tab.toUpperCase()}
+            {tab}
           </Link>
         ))}
       </div>
