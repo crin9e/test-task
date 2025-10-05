@@ -8,8 +8,7 @@ interface DrinkCardPropsI {
 export const DrinkCard: React.FC<DrinkCardPropsI> = memo(({ drinkData }) => {
   const measureKeys = Object.keys(drinkData).filter(key =>
     key.includes('strMeasure')
-  );
-  // ) as (keyof DrinkTypeT)[];
+  ) as (keyof DrinkTypeT)[];
 
   const ingredientKeys = Object.keys(drinkData).filter(key =>
     key.includes('strIngredient')
