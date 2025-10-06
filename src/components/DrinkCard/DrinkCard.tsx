@@ -43,8 +43,8 @@ export const DrinkCard: React.FC<DrinkCardPropsI> = memo(({ drinkData }) => {
 
               return ingredient ? (
                 <div key={ingredientKey} className={styles.ingredientItem}>
-                  <dt>{ingredient}</dt>
-                  <dd>{measure}</dd>
+                  {ingredient && <dt>{ingredient}</dt>}
+                  {measure && <dd>{measure}</dd>}
                 </div>
               ) : null;
             })}

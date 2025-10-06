@@ -1,7 +1,7 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { DrinkPage } from './pages/DrinkPage/DrinkPage';
 import { cocktailCodes } from './constants';
-import { NotFoundPage } from './pages/DrinkPage/NotFoundPage/NotFound';
+import { NotFoundPage } from './pages/NotFoundPage/NotFound';
 import { Layout } from './components/Layout/Layout';
 
 const App = () => {
