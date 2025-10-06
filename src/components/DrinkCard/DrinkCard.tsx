@@ -20,46 +20,45 @@ export const DrinkCard: React.FC<DrinkCardPropsI> = memo(({ drinkData }) => {
   }, [drinkData]);
 
   return (
-    <div className={styles.drinkCard}>
+    <article className={styles.drinkCard}>
       <div className={styles.drinkDesc}>
-        <h3>{drinkData.strDrink}</h3>
-        <div>
-          <div>{drinkData.strCategory}</div>
-          <div>{drinkData.strAlcoholic}</div>
-          <div>{drinkData.strGlass}</div>
-        </div>
-        <div>
-          <h4>Instructions:</h4>
-          <div>{drinkData.strInstructions}</div>
-        </div>
-        <div>
-          <h4>List of Ingredients</h4>
-          <div className={styles.ingredientsContainer}>
-            <div className={styles.measuresAndIngredientsList}>
-              {ingredientKeys.map(ingredientKey =>
-                drinkData[ingredientKey] ? (
-                  <div>{drinkData[ingredientKey]}</div>
-                ) : null
-              )}
-            </div>
-            <div className={styles.measuresAndIngredientsList}>
-              {measureKeys.map(measureKey =>
-                drinkData[measureKey] ? (
-                  <div>{drinkData[measureKey]}</div>
-                ) : null
-              )}
-            </div>
+        <header>
+          <h2>{drinkData.strDrink}</h2>
+          <div>
+            <div>{drinkData.strCategory}</div>
+            <div>{drinkData.strAlcoholic}</div>
+            <div>{drinkData.strGlass}</div>
           </div>
-        </div>
+        </header>
+        <section>
+          <h3>Instructions:</h3>
+          <div>{drinkData.strInstructions}</div>
+        </section>
+        <section>
+          <h3>List of Ingredients</h3>
+          <dl className={styles.ingredientsList}>
+            {ingredientKeys.map((ingredientKey, index) => {
+              const ingredient = drinkData[ingredientKey];
+              const measure = drinkData[measureKeys[index]];
+
+              return ingredient ? (
+                <div key={ingredientKey} className={styles.ingredientItem}>
+                  <dt>{ingredient}</dt>
+                  <dd>{measure}</dd>
+                </div>
+              ) : null;
+            })}
+          </dl>
+        </section>
       </div>
-      <div className={styles.imgContainer}>
+      <figure className={styles.imgContainer}>
         <img
           className={styles.drinkImg}
           src={drinkData.strDrinkThumb}
           alt={`A picture of a ${drinkData.strDrink}`}
           loading="lazy"
         />
-      </div>
-    </div>
+      </figure>
+    </article>
   );
 });

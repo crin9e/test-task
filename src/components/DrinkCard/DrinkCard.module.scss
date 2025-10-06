@@ -14,11 +14,12 @@
     margin: 0;
   }
 
-  h3 {
+  h2 {
     font-size: $font-size-large;
+    margin-bottom: $spacing;
   }
 
-  h4 {
+  h3 {
     font-size: $font-size-medium;
   }
 
@@ -28,23 +29,23 @@
     flex-direction: column;
     gap: $spacing;
     font-size: $font-size-medium;
-    width: 50%;
+    width: 60%;
 
     @include responsive(700px) {
       width: 70%;
     }
-  }
 
-  .ingredientsContainer {
-    display: flex;
-    flex-direction: row;
-    gap: $spacing;
-  }
+    .ingredientsList {
+      display: grid;
+      gap: 0.25rem;
+    }
 
-  .measuresAndIngredientsList {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
+    .ingredientItem {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1rem;
+      padding: 0.25rem 0;
+    }
   }
 
   .imgContainer {
@@ -54,7 +55,7 @@
     height: fit-content;
     margin: $spacing;
 
-    @include responsive(768px) {
+    @include responsive(860px) {
       width: 30%;
     }
   }
